@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <!-- <link rel="stylesheet" href="/assets/css/navbar1.css"> -->
+    <link rel="stylesheet" href="./assets/css/contactUs.css">
+</head>
+
+<body>
+
+
+
+    <img class="wave" src="./assets/images/nature.svg">
+    <div class="container">
+        <div class="img">
+            <img src="./assets/images/contact_us.svg">
+        </div>
+        <div class="content">
+            <form action="index.html" id="contactForm">
+                <!-- <img src="/images/leaf.svg"> -->
+                <h2 class="title">Connect with Us</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input type="text" id="name" class="input" required placeholder="Name">
+                    </div>
+                </div>
+                <!-- <div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Organisation name</h5>
+           		    	<input type="password" class="input">
+            	   </div>
+                </div> -->
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input id="company" type="text" class="input" placeholder="Organisation name" required>
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input id="phone" type="number" class="input" placeholder="Contact" required>
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input id="email" type="email" class="input" placeholder="E-mail" required>
+                    </div>
+                </div>
+                <input type="submit" class="btn" value="Share" onclick="swal({
+                    title: 'Successfully Registered',
+                    text: 'Thank You',
+                    icon: 'success',
+                  });">
+
+                <div class="info">
+                    You may also contact us at
+                    <ul>
+                        <li><i class="fa fa-phone"></i> (111) 555-1111 | EcoVilla@gmail.com</li>
+                    </ul>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>

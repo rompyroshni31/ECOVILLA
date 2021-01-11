@@ -1,0 +1,527 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="./assets/css/ganga.css">
+
+	<link rel="stylesheet" href="./assets/css/footer.css">
+	<link rel="stylesheet" href="./assets/css/navbar1.css">
+	<link rel="stylesheet" href="./assets/css/video1.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+	<style>
+		.blockquote {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.text {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		body {
+			margin-top: 0%;
+			margin-bottom: 0;
+		}
+
+		.poly {
+			border: 1px solid rgb(0, 0, 0);
+			border-radius: 20px;
+			box-shadow: 10px 10px 5px rgba(10, 9, 9, 0.788);
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		h1 {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.exp {
+			background-color: rgba(255, 174, 0, 0.459);
+			padding: 10px;
+			border: 10px solid rgba(255, 174, 0, 0.952);
+			border-radius: 15px;
+			box-shadow: 7px 8px #1c2841a1;
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				title: {
+					text: "Daily Pollution Levels"
+				},
+				axisX: {
+					valueFormatString: "MMM YYYY"
+				},
+				axisY2: {
+					title: "Median List Price",
+					prefix: "$",
+					suffix: "K"
+				},
+				toolTip: {
+					shared: true
+				},
+				legend: {
+					cursor: "pointer",
+					verticalAlign: "top",
+					horizontalAlign: "center",
+					dockInsidePlotArea: true,
+					itemclick: toogleDataSeries
+				},
+				data: [{
+						type: "line",
+						showInLegend: true,
+						name: "Chlorine level",
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#551313;",
+						dataPoints: [
+
+							{
+								x: new Date(2020, 12, 13),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 30
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 18
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 24
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 27
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 17
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 18
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 13
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 33
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 17
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 33
+							}
+						]
+					},
+					{
+						name: "Transparancy Level",
+						type: "line",
+						showInLegend: true,
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#ca7900",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 20
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 28
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 24
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 27
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 29
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 30
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 20
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 13
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 11
+							}
+						]
+					},
+					{
+
+						name: "TDS Level",
+						type: "line",
+						showInLegend: true,
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#134975",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 114
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 210,
+								indexLabel: "\u2191 highest",
+								markerColor: "red",
+								markerType: "triangle"
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 109
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 150
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 165
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 160
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 190
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 102,
+								indexLabel: "\u2193 lowest",
+								markerColor: "DarkSlateGrey",
+								markerType: "cross"
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 200
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 180
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 112
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 155
+							}
+						]
+					},
+					{
+						type: "line",
+						showInLegend: true,
+						name: "Chlorine level",
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: " #990033",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 114
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 250
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 129
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 199
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 140
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 200
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 162
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 280
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 120
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 120
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 122
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 195
+							}
+						]
+					}
+				]
+			});
+			chart.render();
+
+			function toogleDataSeries(e) {
+				if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+				}
+				chart.render();
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<!--navbar-start-->
+	<table width="100%" style="background-color:#1c2841;">
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	<nav>
+		<ul>
+			<li class="logo"><img src="./assets/images/eco_logo copy.png" width="10%"></li>
+			<li class="items"><a href="index.html">Home</a></li>
+			<li class="items"><a href="about1.html">About</a></li>
+			<li class="items"><a href="types.html">Water Bodies</a></li>
+			<!-- <li class="items"><a href="#">Enivronment</a></li> -->
+			<li class="items"><a href="contact.html">Contact Us</a></li>
+			<li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+		</ul>
+	</nav>
+	<!--navbar-finish-->
+	<br><br><br><br><br><br>
+
+	<div class=head>
+		<div class=img>
+			<img class="poly" src="./assets/images/ganga.jpg" alt="Paris" width="500" height="300" align="right">
+		</div>
+		<h1 role="img" aria-label="COOUM, Chennai" style="font-size: 280%;">
+			<span class="letter rev">G</span>
+			<span class="letter">A</span>
+			<span class="letter rev">N</span>
+			<span class="letter">G</span>
+			<span class="letter">A</span>
+			<span class="letter rev">, </span>
+			<span class="letter rev">P</span>
+			<span class="letter rev">r</span>
+			<span class="letter">a</span>
+			<span class="letter">y</span>
+			<span class="letter rev">a</span>
+			<span class="letter">g</span>
+			<span class="letter rev">r</span>
+			<span class="letter">a</span>
+			<span class="letter rev">j</span>
+		</h1>
+		<p class="text" style="font-size: 18px;">The Oversight Committee on water quality, untapped drains and status of
+			Sewage Treatment Plants (STPs) in Uttar Pradesh headed by Justice SK Singh filed its report on the website
+			of the National Green Tribunal on June 26, 2020.
+
+			The committee had directed the Uttar Pradesh Pollution Control Board (UPPCB) to call for a report from the
+			regional officers with regard to the quality of water in different parts of the Ganga river originating from
+			Uttarakhand and entering Uttar Pradesh in Bijnor district.
+
+			A report was submitted by the chief environment engineer of UPPCB’s central laboratory on the water quality
+			of the Ganga in Uttar Pradesh in the months of January, April, August and December 2019 in different
+			districts from Bijnor to Ghazipur.
+
+			The biological oxygen demand (BOD) or dissolved oxygen level was 1.4 milligram per litre (mg / l) at the
+			place where river Ganga entered Bijnor. The water quality was B, which was fit for outdoor bathing,
+			according to the report.
+
+			At Garhmukteshwar, the water quality was C, but when the Ganga entered the territorial jurisdiction of
+			Kannauj district, the water quality changed from C to D, with a BOD level of 3.3 mg / l.
+
+			From Bithoor in Kanpur to Prayagraj (Allahabad), the water quality of the Ganga remained in category D. The
+			BOD level of the Ganga in Vindhyachal, within the territorial jurisdiction of Mirzapur, was C that got
+			converted to D after Mirzapur and remained the same in Ghazipur.
+
+			In Noida, the BOD level of the Yamuna river at Gharbara / Filwara, Noida was 50.8 mg / litre and the water
+			quality was reported to be E, which can be used for irrigation, industrial cooling and controlled waste
+			disposal. The BOD level at Vrindavan and Mathura was reported to be of water quality D.
+
+			More than 50 per cent STPs were not properly functioning and sewage generated from Lucknow city was directly
+			discharged into the Gomti river, causing water pollution. The STPs installed were overflowing and no action
+			was being taken by the water works department.
+
+			Likewise, approximately 33 drains were falling into the Ganga in Ghazipur district and there was only one
+			STP in the district. Similarly, 10 drains in Varanasi, 32 in Prayagraj, 16 in Mirzapur and 13 in district
+			Kanpur were directly falling into the Ganga.
+
+			The NGT had directed that no untreated sewage should be discharged into the Ganga and bio-remediation and
+			phyto-remediation or any other remediation measures should start as an interim measure positively from
+			November 1, 2019.
+
+			Failing this, the state would be liable to pay compensation at the rate of Rs 5 lakh per month per drain.
+			Since no remediation measures are reported to have taken place, the environmental compensation should be
+			levied and recovered from the state within a time frame.
+		</p>
+
+
+	</div>
+	<br><br><br><br><br><br>
+	<br><br>
+
+	<br>
+	<br>
+	<div class="blockquote-wrapper">
+		<div class="blockquote">
+			<p class="exp" style="font-size: 27px;">
+				So,Basically the graph shown below doesn't proclaims you the accurate data because we have an innovative
+				idea<span style="color:#800000e0"> to set the device in some of the main points inside the river to
+					get</span> the accurate live average levels <span style="color:#800000e0">DAILY.</span>
+			</p>
+		</div>
+	</div>
+	<br><br><br><br><br><br>
+
+	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<br><br><br><br><br><br>
+
+
+	<!--footer-start-->
+	<div class="footer_start">
+		<footer class="footer">
+			<div class="footer-left">
+				<img src="./assets/images/eco_logo.png" alt="" />
+				<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECO-VILLA, means
+					turning our ecosystem/surrounding into a villa where every human kind can rejoice in. To run this
+					cause, we have mainly focused on River Protection & Paper Recycling. Explore us to know more...</p>
+			</div>
+			<ul class="footer-right">
+				<li>
+					<h2>Links</h2>
+					<ul class="box">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Water Bodies</a></li>
+						<!-- <li><a href="#">Environment Pollution</a></li> -->
+					</ul>
+				</li>
+				<li class="features">
+					<h2>Links</h2>
+					<ul class="box">
+						<li><a href="#">Donate</a></li>
+						<li><a href="#">E-Commerce</a></li>
+						<li><a href="#">Forms</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Address</h2>
+					<ul class="box">
+						<li><a href="#">Contact No. </a></li>
+						<li><a href="#">+91-98186 85732</a></li>
+						<li><a href="#">+91-81688 64651</a></li>
+						<li><a href="#">kanika.mahindroo@google.com</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="footer-bottom">
+				<p>All Right reserved by &copy;conceptial 2020</p>
+			</div>
+		</footer>
+		<!--footer-finish-->
+	</div>
+
+
+	<!-- inspired by quote here:https://www.thebump.com/real-answers/questions/how-to-get-my-baby-to-fall-to-sleep-on-his-own -->
+
+</body>
+
+</html>

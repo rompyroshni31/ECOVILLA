@@ -1,0 +1,508 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="./assets/css/ganga.css">
+
+	<link rel="stylesheet" href="./assets/css/footer.css">
+	<link rel="stylesheet" href="./assets/css/navbar1.css">
+	<link rel="stylesheet" href="./assets/css/video1.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+	<style>
+		.blockquote {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.text {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		body {
+			margin-top: 0%;
+			margin-bottom: 0;
+		}
+
+		.poly {
+			border: 1px solid rgb(0, 0, 0);
+			border-radius: 20px;
+			box-shadow: 10px 10px 5px rgba(10, 9, 9, 0.788);
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		h1 {
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.exp {
+			background-color: rgba(255, 174, 0, 0.459);
+			padding: 10px;
+			border: 10px solid rgba(255, 174, 0, 0.952);
+			border-radius: 15px;
+			box-shadow: 7px 8px #1c2841a1;
+
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				title: {
+					text: "Daily Pollution Levels"
+				},
+				axisX: {
+					valueFormatString: "MMM YYYY"
+				},
+				axisY2: {
+					title: "Median List Price",
+					prefix: "$",
+					suffix: "K"
+				},
+				toolTip: {
+					shared: true
+				},
+				legend: {
+					cursor: "pointer",
+					verticalAlign: "top",
+					horizontalAlign: "center",
+					dockInsidePlotArea: true,
+					itemclick: toogleDataSeries
+				},
+				data: [{
+						type: "line",
+						showInLegend: true,
+						name: "Chlorine level",
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#551313;",
+						dataPoints: [
+
+							{
+								x: new Date(2020, 12, 13),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 30
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 18
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 24
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 27
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 17
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 18
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 13
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 33
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 17
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 33
+							}
+						]
+					},
+					{
+						name: "Transparancy Level",
+						type: "line",
+						showInLegend: true,
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#ca7900",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 10
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 20
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 28
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 24
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 27
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 23
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 29
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 30
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 20
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 22
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 13
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 11
+							}
+						]
+					},
+					{
+
+						name: "TDS Level",
+						type: "line",
+						showInLegend: true,
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: "#134975",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 114
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 210,
+								indexLabel: "\u2191 highest",
+								markerColor: "red",
+								markerType: "triangle"
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 109
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 150
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 165
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 160
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 190
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 102,
+								indexLabel: "\u2193 lowest",
+								markerColor: "DarkSlateGrey",
+								markerType: "cross"
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 200
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 180
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 112
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 155
+							}
+						]
+					},
+					{
+						type: "line",
+						showInLegend: true,
+						name: "Chlorine level",
+						markerType: "square",
+						xValueFormatString: "DD MMM, YYYY",
+						color: " #990033",
+						dataPoints: [{
+								x: new Date(2020, 12, 13),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 14),
+								y: 114
+							},
+							{
+								x: new Date(2020, 12, 15),
+								y: 250
+							},
+							{
+								x: new Date(2020, 12, 16),
+								y: 129
+							},
+							{
+								x: new Date(2020, 12, 17),
+								y: 199
+							},
+							{
+								x: new Date(2020, 12, 18),
+								y: 140
+							},
+							{
+								x: new Date(2020, 12, 19),
+								y: 200
+							},
+							{
+								x: new Date(2020, 12, 20),
+								y: 110
+							},
+							{
+								x: new Date(2020, 12, 21),
+								y: 162
+							},
+							{
+								x: new Date(2020, 12, 22),
+								y: 280
+							},
+							{
+								x: new Date(2020, 12, 23),
+								y: 120
+							},
+							{
+								x: new Date(2020, 12, 24),
+								y: 120
+							},
+							{
+								x: new Date(2020, 12, 25),
+								y: 122
+							},
+							{
+								x: new Date(2020, 12, 26),
+								y: 195
+							}
+						]
+					}
+				]
+			});
+			chart.render();
+
+			function toogleDataSeries(e) {
+				if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				} else {
+					e.dataSeries.visible = true;
+				}
+				chart.render();
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<!--navbar-start-->
+	<table width="100%" style="background-color:#1c2841;">
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	<nav>
+		<ul>
+			<li class="logo"><img src="./assets/images/eco_logo copy.png" width="10%"></li>
+			<li class="items"><a href="index.html">Home</a></li>
+			<li class="items"><a href="about1.html">About</a></li>
+			<li class="items"><a href="types.html">Water Bodies</a></li>
+			<!-- <li class="items"><a href="#">Enivronment</a></li> -->
+			<li class="items"><a href="contact.html">Contact Us</a></li>
+			<li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+		</ul>
+	</nav>
+	<!--navbar-finish-->
+	<br><br><br><br><br><br>
+	<div class=head>
+		<div class=img>
+			<img class="poly" src="./assets/images/polyamuna.jpg" alt="Paris" width="500" height="300" align="right"
+				padding="5%">
+		</div>
+		<h1 role="img" aria-label="YAMUNA, Delhi" style="font-size: 280%;">
+			<span class="letter rev">Y</span>
+			<span class="letter">A</span>
+			<span class="letter rev">M</span>
+			<span class="letter">U</span>
+			<span class="letter">N</span>
+			<span class="letter rev">A</span>
+			<span class="letter rev">, </span>
+
+			<span class="letter rev">D</span>
+			<span class="letter">e</span>
+			<span class="letter">l</span>
+			<span class="letter rev">h</span>
+			<span class="letter">i</span>
+		</h1>
+		<p class="text" style="font-size: 18px; padding: 2%; padding-right: 5%;">
+			<b>About 57 million people depend on Yamuna waters as it accounts for more than 70% of Delhi’s water
+				supplies, but today it is also referred to as ‘Delhi’s dying holy river’.</b>
+			Long ago, the waters of Yamuna were pristine blue but today the Yamuna is considered to be one of the
+			severely polluted rivers in the world. The Yamuna is particularly polluted downstream of New Delhi, the
+			capital of India, which dumps about 58% of its waste into the river.
+
+			The most pollution comes from Wazirabad, from where Yamuna enters Delhi.
+			More than 800 million litres of largely untreated sewage is pumped in the Yamuna each day. Another 44
+			million litres of industrial effluents are also discharged daily into the river.
+
+			Sewage that is treated before being released into the river accounts for only 35% of the total estimated
+			sewage discharge.
+			The catchment area of River Yamuna in Delhi is highly urbanized and is networked with several drains.
+			Najafgarh and Shahdara drains are the major drains that discharge a heavy load of pollutants into the river.
+
+			Rapid urbanization and population growth results in industrialization pose a major threat of heavy metal
+			pollution for nearby water bodies. The water quality monitoring of River Yamuna has indicated a significant
+			presence of several heavy metals in its water.
+
+
+			According to the Central Pollution Board, the water contains a concentration of 1.1 billion fecal coliform
+			bacteria per 100 milliliters of water. The standard for bathing is 500 coliform bacteria per 100
+			milliliters.
+			According to a report submitted by the Delhi Pollution Control Committee and the Central Pollution Control
+			Board (CPCB) to the Yamuna Pollution Control Committee, at least 90% of domestic wastewater in the city
+			flows into the Yamuna.
+
+			The wastewater mainly comes from household activities hence the presence of high content of detergent,
+			laundry chemicals, and phosphate compounds.
+		</p>
+	</div>
+	<br><br>
+	<br><br><br><br><br><br>
+
+	<br>
+	<br>
+	<div class="blockquote-wrapper">
+		<div class="blockquote">
+			<p class="exp" style="font-size: 27px;">
+				So,Basically the graph shown below doesn't projects you the accurate data because we have an innovative
+				idea<span style="color:#800000e0"> to set the device in some of the main points inside the river to
+					get</span> the accurate live average levels <span style="color:#800000e0">DAILY.</span>
+			</p>
+		</div>
+	</div>
+	<br><br><br><br><br><br>
+	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<br><br><br><br><br><br>
+
+	<!--footer-start-->
+	<div class="footer_start">
+		<footer class="footer">
+			<div class="footer-left">
+				<img src="./assets/images/eco_logo.png" alt="" />
+				<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECO-VILLA, means
+					turning our ecosystem/surrounding into a villa where every human kind can rejoice in. To run this
+					cause, we have mainly focused on River Protection & Paper Recycling. Explore us to know more...</p>
+			</div>
+			<ul class="footer-right">
+				<li>
+					<h2>Links</h2>
+					<ul class="box">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Water Bodies</a></li>
+						<!-- <li><a href="#">Environment Pollution</a></li> -->
+					</ul>
+				</li>
+				<li class="features">
+					<h2>Links</h2>
+					<ul class="box">
+						<li><a href="#">Donate</a></li>
+						<li><a href="#">E-Commerce</a></li>
+						<li><a href="#">Forms</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Address</h2>
+					<ul class="box">
+						<li><a href="#">Contact No. </a></li>
+						<li><a href="#">+91-98186 85732</a></li>
+						<li><a href="#">+91-81688 64651</a></li>
+						<li><a href="#">kanika.mahindroo@google.com</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="footer-bottom">
+				<p>All Right reserved by &copy;conceptial 2020</p>
+			</div>
+		</footer>
+		<!--footer-finish-->
+	</div>
+
+	<!-- inspired by quote here:https://www.thebump.com/real-answers/questions/how-to-get-my-baby-to-fall-to-sleep-on-his-own -->
+
+</body>
+
+</html>
