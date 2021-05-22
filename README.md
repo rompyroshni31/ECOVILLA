@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # :label: ECOVILLA
 ### ECOVILLA means turning our ecosystem/surrounding into a villa where every human kind can rejoice in. To run this cause, we have mainly focused on River Protection & Paper Recycling.
 
@@ -28,3 +29,6 @@ Provided a customized panel for corporate offices and institutional organization
 Youtube: https://youtu.be/7Nhzy-_9HO4
 
 Github: 
+=======
+# ECO_VILLA
+>>>>>>> Stashed changes
